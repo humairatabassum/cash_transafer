@@ -1,0 +1,58 @@
+    body {
+        background-color: #161336;
+        padding: 30px;
+    }
+
+    .outter {
+        background-color: #161336;
+        padding: 30px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 15px;
+        padding-bottom: 26px;
+        color: #fff;
+    }
+
+    .container {
+        border: 2px solid #dedede;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        padding: 8px;
+        margin: 10px 0;
+    }
+
+    .darker {
+        border-color: #ccc;
+        background-color: #ddd;
+    }
+
+    .container::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .container img {
+        float: left;
+        max-width: 60px;
+        width: 100%;
+        margin-right: 20px;
+        border-radius: 50%;
+    }
+
+    .time-right {
+        float: right;
+        color: rgb(133, 132, 132);
+    }
+
+    .time-left {
+        float: right;
+        color: rgb(150, 150, 150);
+    }

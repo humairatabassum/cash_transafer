@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/show_message.css'%}" />
+
+<title>Chat Messages</title>
+
+
+<body>
+    <div class="outter">
+        <div class="row">
+            <div class="col-6">
+                <h2>Received Messages</h2>
+                {% if recMsg %}
+                {% for msgR in recMsg %}
+                <div class="container">
+
+                    <span class="display-24 text-secondary me-2 font-weight-600">Name:</span>{{msgR.nameSender}}
+                    <br>
+                    <span class="display-24 text-secondary me-2 font-weight-600">Email:</span>{{msgR.email}}
+                    <br>
+                    <span class="display-24 text-secondary me-2 font-weight-600">Message:</span>{{msgR.messages}}
+                    <br>
+                    <span class="time-left">{{msgR.created_at}}</span>
+                </div>
+                {% endfor %}
+                {% else %}
+                <h5 style="color: #ccc; text-align:center ;"> Sorry! No messages have been received yet</h5>
+                {% endif %}
+            </div>
+
+            <div class="col-6">
+                <h2>Send Messages</h2>
+                {% if senMsg %}
+                {% for msgS in senMsg %}
+                <div class="container darker">
+                    <span class="display-24 text-secondary me-2 font-weight-600">Name:</span>{{msgS.name}}
+                    <br>
+                    <span class="display-24 text-secondary me-2 font-weight-600">Email:</span>{{msgS.receiver}}
+                    <br>
+                    <span class="display-24 text-secondary me-2 font-weight-600">Message:</span>{{msgS.messages}}
+                    <br>
+                    <span class="time-right">{{msgS.created_at}}</span>
+                </div>
+                {% endfor %}
+                {% else %}
+                <h5 style="color: #ccc; text-align:center ;"> Sorry! No message has been sent yet</h5>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+{% endblock %}

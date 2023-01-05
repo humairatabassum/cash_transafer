@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+{% block content %}
+<html lang="en" dir="ltr">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Message box</title>
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chat_box.css'%}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="content">
+            <div class="left-side">
+
+                <div class="phone details">
+                    <i class="fas fa-user-alt"></i>
+                    <div class="topic">Name</div>
+                    <div class="text-one">{{user.name}}</div>
+
+                </div>
+                <div class="phone details">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="topic">Phone</div>
+                    <div class="text-one">{{user.phoneNumber}}</div>
+
+                </div>
+                <div class="email details">
+                    <i class="fas fa-envelope"></i>
+                    <div class="topic">Email</div>
+                    <div class="text-one">{{user.email}}</div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="topic-text">Send Your Message to Your Money Sender/Receiver</div>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="input-box">
+                        <input type="text" name="name" placeholder="Enter receiver's name" required>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="text" name="receiver" placeholder="Enter receiver's email" required>
+                    </div>
+
+                    <div class="input-box message-box">
+                        <textarea name="messages" placeholder="Enter your message here......" required></textarea>
+                    </div>
+
+                    <input style="color: #fff; font-size: 18px; outline: none; width: 150px; border: none; 
+                        padding: 8px 16px; margin-top:10px;  border-radius: 6px; background: #3e2093; cursor: pointer; 
+                        transition: all 0.3s ease !important" type="submit" value="Send Now">
+
+                    <div class="form-group">
+                        <input style="color: #fff; font-size: 18px; outline: none; width: 150px; border: none; 
+                        padding: 8px 16px; margin-top:-40px;  border-radius: 6px; background: #3e2093; cursor: pointer; 
+                        transition: all 0.3s ease !important" type="button" class="right" value="Cancel"
+                            onclick="location.href='/'">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+{% endblock %}
